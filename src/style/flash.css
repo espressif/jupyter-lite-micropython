@@ -1,0 +1,130 @@
+/* Flash Device Dialog Styles */
+.flash-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  display: none;
+}
+
+.flash-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--jp-layout-color1, white);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  max-width: 500px;
+  width: 90%;
+  z-index: 10001;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.flash-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.flash-dialog-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--jp-ui-font-color0, #212121);
+}
+
+.flash-dialog-close {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--jp-ui-font-color2, #757575);
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flash-dialog-description {
+  margin: 0 0 20px 0;
+  color: var(--jp-ui-font-color2, #757575);
+}
+
+.flash-options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.flash-panel {
+  border: 1px solid var(--jp-border-color1, #E0E0E0);
+  border-radius: 4px;
+  padding: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.flash-panel:hover {
+  background-color: var(--jp-layout-color2, #EEEEEE);
+  border-color: var(--jp-brand-color1, #2196F3);
+}
+
+.flash-panel-title {
+  margin: 0 0 8px 0;
+  font-size: 15px;
+  color: var(--jp-ui-font-color0, #212121);
+}
+
+.flash-panel-description {
+  margin: 0 0 16px 0;
+  color: var(--jp-ui-font-color2, #757575);
+  font-size: 13px;
+}
+
+.firmware-select-container {
+  margin-bottom: 16px;
+}
+
+.firmware-select-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--jp-ui-font-color1, #424242);
+}
+
+.firmware-select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid var(--jp-border-color1, #E0E0E0);
+  background-color: var(--jp-layout-color1, white);
+  color: var(--jp-ui-font-color0, #212121);
+  font-size: 13px;
+}
+
+.firmware-description {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--jp-ui-font-color2, #757575);
+  font-style: italic;
+}
+
+.flash-button {
+  padding: 8px 16px;
+  background-color: var(--jp-brand-color1, #2196F3);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  width: 100%;
+}

@@ -1,0 +1,127 @@
+/* ESP Toolbar Styles */
+
+/* Device Connection Status Indicator */
+.connected-device-indicator {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.device-status {
+  display: flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: var(--jp-ui-font-family);
+  white-space: nowrap;
+}
+
+.device-status.connected {
+  color: #2e7d32;
+  background-color: rgba(46, 125, 50, 0.1);
+}
+
+.device-status.disconnected {
+  color: #c62828;
+  background-color: rgba(198, 40, 40, 0.1);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.connected .status-dot {
+  background-color: #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+}
+
+.disconnected .status-dot {
+  background-color: #c62828;
+  box-shadow: 0 0 0 2px rgba(198, 40, 40, 0.2);
+}
+
+.device-status-container {
+  margin-right: 12px;
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.jp-ToolbarButton.esp-button {
+  background: var(--jp-layout-color1);
+  border-radius: 2px;
+  border: none;
+  padding: 0px 6px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.1s ease;
+}
+
+.jp-ToolbarButton.esp-button:hover {
+  background-color: var(--jp-layout-color2);
+}
+
+.jp-ToolbarButton.esp-button:active {
+  background-color: var(--jp-layout-color3);
+}
+
+.esp-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.esp-logo {
+  width: 20px;
+  height: 20px;
+}
+
+.esp-button-label {
+  font-size: 13px;
+  padding: 0 2px;
+  color: var(--jp-ui-font-color1);
+}
+
+.esp-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--jp-layout-color1, white);
+  min-width: 180px;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--jp-border-color1, #E0E0E0);
+  z-index: 10000;
+  margin: 0;
+  padding: 4px 0;
+  overflow: auto;
+}
+
+.esp-dropdown-menu.visible {
+  display: block;
+}
+
+.esp-menu-item {
+  padding: 6px 12px;
+  font-size: 13px;
+  font-family: var(--jp-ui-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif);
+  color: var(--jp-ui-font-color1, rgba(0,0,0,.87));
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  line-height: 1.4;
+  white-space: nowrap;
+  user-select: none;
+  transition: background-color 0.1s ease;
+}
+
+.esp-menu-item:hover {
+  background-color: var(--jp-layout-color2, #EEEEEE);
+}
