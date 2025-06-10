@@ -1,0 +1,52 @@
+/* Full Log Panel Styles */
+.full-log-panel {
+    position: absolute;
+    width: 800px;
+    height: 600px;
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    top: 100px;
+    left: 100px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.full-log-header {
+    padding: 8px 12px;
+    background-color: #3c3c3c;
+    border-bottom: 1px solid #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: move;
+}
+
+.full-log-title {
+    font-weight: bold;
+    color: #e0e0e0;
+}
+
+.full-log-close-btn {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0 5px;
+}
+
+.full-log-content {
+    flex: 1;
+    padding: 12px;
+    overflow: auto;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    font-family: monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+    line-height: 1.5;
+}
