@@ -3,6 +3,7 @@ import {ConnectDeviceUI} from "./dropItem/connectDevice";
 import {FlashDeviceUI} from "./dropItem/flashDevice";
 import {ResetDeviceUI} from "./dropItem/resetDevice";
 import {DeviceIndicator} from "./DeviceIndicator";
+import {DisconnectDeviceUI} from "./dropItem/disconnectDevice";
 
 import "/src/style/toolbar.css";
 import {FullLogPanel} from "./dropItem/fullLog";
@@ -19,39 +20,42 @@ export const EspControlPanelButton = `
         </svg>
       </span>
     </button>
-`
+`;
 
 export function addButtonToToolbarElement(toolbar: Element, serviceContainer: ServiceContainer): void {
-  const deviceStatusIndicator = new DeviceIndicator(serviceContainer.deviceService);
+  const deviceStatusIndicator = new DeviceIndicator(
+    serviceContainer.deviceService,
+  );
   const statusElement = deviceStatusIndicator.getElement();
   statusElement.className += " lm-Widget jp-Toolbar-item device-status-container";
   toolbar.insertBefore(statusElement, toolbar.firstChild);
-  
+
   const items = [
     new ConnectDeviceUI(serviceContainer.deviceService),
     new FlashDeviceUI(serviceContainer.deviceService, serviceContainer.firmwareService, serviceContainer.flashService),
     new ResetDeviceUI(serviceContainer.deviceService),
     new FullLogPanel(serviceContainer.consoleService),
+    new DisconnectDeviceUI(),
   ];
-  
+
   const div = document.createElement('div');
   div.className = "lm-Widget jp-CommandToolbarButton jp-Toolbar-item dropdown-container";
-  
-  const menuItemsHTML = items.map(item => {
-    return `
+
+  const menuItemsHTML = items.map((item) => {
+      return `
       <div class="esp-menu-item" role="menuitem" tabindex="-1">
         ${item.text}
       </div>
     `;
   }).join('');
-  
+
   div.innerHTML = `
     ${EspControlPanelButton}
     <div class="esp-dropdown-menu">
       ${menuItemsHTML}
     </div>
   `;
-  
+
   const button = div.querySelector('.esp-button');
   const dropdownContent = div.querySelector('.esp-dropdown-menu');
   const menuItems = div.querySelectorAll('.esp-menu-item');
@@ -66,13 +70,13 @@ export function addButtonToToolbarElement(toolbar: Element, serviceContainer: Se
       dropdownContent.classList.toggle('visible');
     });
   }
-  
+
   document.addEventListener('click', (e) => {
     if (!div.contains(e.target as Node) && dropdownContent) {
       dropdownContent.classList.remove('visible');
     }
   });
-  
+
   menuItems.forEach((menuItem, index) => {
     if (menuItem && items[index]) {
       menuItem.addEventListener('click', (e) => {
@@ -84,7 +88,7 @@ export function addButtonToToolbarElement(toolbar: Element, serviceContainer: Se
       });
     }
   });
-  
+
   toolbar.insertBefore(div, toolbar.firstChild);
 }
 
